@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>You will be redirected to home page after 1800 seconds</h1>
+    <p style="color:black;font-size:large; font-weight:bold"> Time limit in seconds: <span id="time"></span></p>
+
+   
+
+<script>
+function myFunction() {
+   window.location.href="./index.html"
+}
+function startTimer(duration, display) {
+  let timer = duration;
+  setInterval(function() {
+    display.textContent = timer;
+    if (--timer < 0) {
+      timer = duration;
+    }
+    if(timer==0)
+     window.location.href="./index.html"
+  }, 1000);
+}
+
+let countdownTime = 3600; // in seconds
+let countdownDisplay = document.getElementById("time"); // replace "countdown" with the ID of your display element
+startTimer(countdownTime, countdownDisplay);
+
+</script>
+    
+</body>
+</html>

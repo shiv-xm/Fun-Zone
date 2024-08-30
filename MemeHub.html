@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <!-- Favicons -->
+  <link href="assets/favicon.ico" rel="icon" sizes="16x16">
+
+  <title>Meme Hub</title>  
+
+<link href="./main.3f6952e4.css" rel="stylesheet">
+<style>
+  *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+h1{
+  font-size: 50px;
+}
+body{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+height: 90vh;
+background-image: url("https://www.creativefabrica.com/wp-content/uploads/2021/07/19/Comic-Background-for-design-Collection-Graphics-14918142-1-580x387.jpg");
+background-size: cover;
+}
+
+.meme img{
+margin-top: 1rem;
+width: 50rem;
+height: 30rem;
+}
+.two{
+  margin-bottom: 65%;
+}
+
+@media only screen and (max-width:400px){
+  .meme img{
+margin-top: 1rem;
+width: 20rem;
+height: 20rem;
+}
+}
+</style></head>
+
+<body class="">
+
+    <h1 id="two">Random Meme Generator</h1>
+    <div class="meme">
+        <img src="" alt="">
+    </div>
+    <button type="button" onclick="randomMemeGenerator()" ></button>
+</body>
+    <script>
+        let img = document.querySelector(".meme img");
+        async function randomMemeGenerator(){
+            let res = await fetch("https://meme-api.com/gimme");    
+            console.log(res);
+            let json = await res.json();
+            console.log(json);
+            let url = json.url;
+            console.log(url);
+            img.src = url;
+
+        }
+        randomMemeGenerator()
+        
+        let timer = setInterval(randomMemeGenerator,4000);
+
+        img.addEventListener("mouseover",function(){
+            clearInterval(timer);
+        })
+
+        img.addEventListener("mouseleave",function(){
+            timer = setInterval(randomMemeGenerator,4000);
+        })
+    </script>
+    
+</html

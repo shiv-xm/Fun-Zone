@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages | Firebase</title>
+    <style>
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:#FFFFFF;
+            background-image: url('https://i.pinimg.com/originals/91/73/09/9173090eb81d91d691d8773e7e973f33.jpg');
+            margin: 0;
+            background-size: cover;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #2b2727;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top:70px;
+            padding: 40px;
+            background-color:#080808;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .inputBox {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color:white;
+        }
+        h2 {
+     /* Replace with your preferred color code */
+    color: #FFFFFF; /* Replace with your preferred text color */
+    margin-top: 0px;
+    padding: 37px; 
+    text-align: center;/* Add some padding to make the text more legible */
+  }
+        textarea {
+            resize: vertical;
+        }
+ 
+
+nav {
+  width: 100%;
+  height: 15vh;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+nav .logo {
+  width: 25%;
+  text-align: center;
+  /*background: red;*/
+}
+
+nav .menu {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav .menu a {
+  width: 25%;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav .menu a:first-child {
+  color: #c93c11;
+}
+
+main {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+        button[type="submit"] {
+            display: block;
+            margin-left: 150px;
+            width: 40%;
+            padding: 10px;
+            background-color:purple;
+            color:white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: rgb(72, 138, 72)/* #b0b9b0; */
+        }
+
+        .alert {
+            display: none;
+            padding: 4px;
+            margin-bottom: 20px;
+            background-color: #080808;
+            color: #fff;
+            border-radius: 5px;
+        }
+        footer {
+      
+      color: #FFFFFF;
+      padding: 7px;
+      text-align: center;
+      font-size: 16px;
+      margin-top:70px;
+    }
+
+        .alert.show {
+            display: block;
+        }
+
+
+        
+    </style>
+</head>
+
+<body><header>
+
+
+    <nav>
+
+
+      
+        <div class="menu">
+            
+            <a href="./index.html" style="font-size: 20px">Home</a>
+       
+            <a href="./works.html">Features</a>
+            <!-- <a href="./blog.html">Blog</a> -->
+            <a href="./contact.html">Contact</a>
+            <a href="index12.html">Login</a>
+        </div>
+    </nav>
+    <div class="container">
+        <form action="" id="contactForm">
+            <div class="alert">Your message sent</div>
+
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Your name...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
+
+            <div class="inputBox">
+                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+
+            <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+      </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+</body>
+
+
+<style>
+    /* Default styles */
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #FFFFFF;
+        margin: 0;
+        background-size: cover;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2b2727;
+        padding-top: 50px;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        margin-top: 70px;
+        padding: 40px;
+        
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .inputBox {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    h2 {
+        
+        color: #FFFFFF;
+        margin-top: 0px;
+        padding: 37px;
+        text-align: center;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    button[type="submit"] {
+        display: block;
+        margin-left: 150px;
+        width: 40%;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #b0b9b0;
+    }
+
+    .alert {
+        display: none;
+        padding: 4px;
+        margin-bottom: 20px;
+        background-color: #080808;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .alert.show {
+        display: block;
+    }
+
+
+        
+    
+        
+    
+    
+        footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: #FFFFFF;
+  padding: 7px;
+  text-align: center;
+  font-size: 16px;
+}
+    
+
+    /* Media queries */
+
+    @media (max-width: 768px) {
+        .container {
+            max-width: 80%;
+            margin-top: 30px;
+        }
+
+        button[type="submit"] {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 24px;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        button[type="submit"] {
+            padding: 8px;
+            font-size: 14px;
+        }
+    }
+</style>
+
+</html>

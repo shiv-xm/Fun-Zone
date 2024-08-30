@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ 
+ body {
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    background: #f8f3ed;
+ }
+ 
+ .btn:focus,
+ .form-control:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgb(13 110 253 / 25%) !important;
+ }
+ 
+ #mainSection {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+ }
+ #mainDiv {
+    background: #f8f3ed;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    /* overflow: hidden; */
+ }
+ 
+ /* header area start here */
+ .header {
+    display: flex;
+    padding: 15px;
+ }
+ .header .part2 {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+ }
+ .header .part2 .profile {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+ }
+ .header .part2 a img {
+    width: 24px;
+ }
+ .header .part2 a {
+    margin: 0 10px;
+ }
+ .header .part2 a:last-child {
+    margin-right: 0;
+ }
+ 
+ /* section header part */
+ .header-text h1 {
+    font-family: 'Libre Baskerville', serif;
+    color: #2b1811;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 15px;
+ }
+ .header-text p {
+    color: #2b1811;
+    margin-bottom: 15px;
+ }
+ .header-text .input-group {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 100px;
+    background: #fff;
+    overflow: hidden;
+ }
+ .header-text .input-group .form-control {
+    height: 60px;
+    border: none;
+    background: #fff;
+ }
+ .header-text .input-group .btn {
+    background: none;
+    border: none;
+    padding: 0;
+    padding-left: 25px;
+    padding-top: 5px;
+    padding-right: 5px;
+ }
+ .header-text .input-group .btn .fas {
+    color: #968c8a;
+    font-size: 20px;
+ }
+ 
+ /* book container start here */
+ #bookContainer {
+    /* overflow-y: auto;
+    height: 600px; */
+ }
+ #bookContainer::-webkit-scrollbar {
+    width: 0px;
+    height: 10px;
+ }
+ .book-box {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
+ }
+ .book-box .book-img {
+    min-width: 160px;
+    min-height: 200px;
+    max-width: 160px;
+    max-height: 200px;
+    margin-right: 15px;
+    /* box-shadow: 10px 10px 50px -35px; */
+    border: 2px solid #fff;
+ }
+ .book-box .book-info .title {
+    font-family: 'Libre Baskerville', serif;
+ }
+ .book-box .book-info p {
+    font-size: 14px;
+ }
+ 
+ /* not found area start here */
+ #notFound {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    display: none;
+ }
+ #notFound h5 {   
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 600;
+ }
+ 
+ /* loader */
+ #loader {
+    display: none;
+    margin-top: 35px;
+ }
+ 
+ /* responsive media queries */
+ @media (max-width: 576px) {
+    #mainDiv {
+       padding: 0;
+    }
+    .header {
+       margin-bottom: 30px;
+    }
+    .header-text h1 {
+       font-size: 32px;
+    }
+    .header-text p {
+       margin-bottom: 0;
+    }
+ }
+ 

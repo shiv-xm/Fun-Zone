@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      <style>
+        
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
+    url("http://getwallpapers.com/wallpaper/full/0/8/8/753286-large-cool-video-game-backgrounds-1920x1200-lockscreen.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: 480px) {
+  /* Responsive styles go here */
+
+  /* Change the layout of the header on screens smaller than 480px */
+  .header {
+    text-align: center;
+  }
+
+  /* Move the navigation bar to the top of the page on screens smaller than 480px */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Hide the footer on screens smaller than 480px */
+  .footer {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* Responsive styles go here */
+
+  /* Hide the sidebar on screens smaller than 768px */
+  .sidebar {
+    display: none;
+  }
+
+  /* Increase the font size on screens smaller than 768px */
+  body {
+    font-size: 16px;
+  }
+}
+nav {
+  width: 100%;
+  height: 10vh;
+  background: rgba(0, 0, 0, 0.2);
+  color:blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+nav .logo {
+  width: 25%;
+  text-align: center;
+}
+
+nav .menu {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav .menu a {
+  width: 25%;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav .menu a:first-child {
+  color:#c93c11;
+}
+
+main {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+section{
+  margin-left:45%;
+  margin-top:-5%;
+}
+section h3 {
+  font-size: 35px;
+  font-weight: 200;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 2px black;
+
+}
+
+section h1 {
+  margin: 30px 0 20px 0;
+  font-size: 35px;
+  font-weight: 700;
+  text-shadow: 2px 1px 5px black;
+  text-transform: uppercase;
+}
+
+section p {
+  font-size: 25px;
+  word-spacing: 2px;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 1px black;
+}
+
+section a {
+  padding: 12px 30px;
+  border-radius: 4px;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 1s ease;
+}
+
+section .btnone {
+  background: #fff;
+  color: #000;
+}
+
+.btnone:hover {
+  background: #00b894;
+  color: white;
+}
+
+section .btntwo {
+  background: #00b894;
+  color: white;
+}
+
+.btntwo:hover {
+  background: #fff;
+  color: #000;
+}
+
+.change_content:after {
+  content: "";
+  animation: changetext 8s infinite linear;
+  color: #00b894;
+}
+
+@keyframes changetext {
+  0% {
+    content: "Mental health";
+  }
+  20% {
+    content: "Physical health";
+  }
+  35% {
+    content: "sleep cycles";
+  }
+  footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
+  color: #FFFFFF;
+  padding: 7px;
+  text-align: center;
+  font-size: 16px;
+}
+  
+}
+
+h1 {
+
+color: #0e3742;
+letter-spacing: 3px;
+text-align: center;
+margin-top: 30px;
+font-size: 60px;
+color: #0e3742;
+text-transform: uppercase;
+width: 100%;
+-webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+line-height: 0.70em;
+outline: none;
+animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+
+0%,
+18%,
+20%,
+50.1%,
+60%,
+65.1%,
+80%,
+90.1%,
+92% {
+  color: #b51717;
+  box-shadow: none;
+
+}
+
+18.1%,
+20.1%,
+30%,
+50%,
+60.1%,
+65%,
+80.1%,
+90%,
+92.1%,
+100% {
+  color: #fff;
+  text-shadow: 0 0 10px hsl(231, 94%, 34%),
+    0 0 20px #e12137,
+    0 0 40px #da1f41,
+    0 0 80px #cc1937,
+    0 0 160px #cc1729,
+    0 0 10px #c91631;
+}
+
+}
+
+/* Change the color of links on hover */
+/* nav a:hover {
+    background-color: #1b09de;
+} */
+
+/* Style for active link */
+
+
+
+      </style> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+	
+<nav>
+	<div class="logo"> <h1>Fun Zone</h1> </div>
+	<div class="menu">
+		<a href="index.html" style="font-size: 20px">Home</a>
+   
+		<a href="works.html">Features</a>
+		<!-- <a href="blog.html">Blog</a> -->
+		<a href="contact.html">contact</a>
+
+    <a href="index12.html">Login</a>
+    
+        
+	</div>
+</nav>
+<br>
+
+
+
+
+
+	<main>
+		<section>
+			<h3 >One-stop destination for fun and games</h3>
+		
+		</section>
+  
+  
+	</main>
+
+ 
+</header>
+
+</body>
+</html>

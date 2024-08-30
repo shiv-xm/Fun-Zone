@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>&lt?>The Riddler Game&lt?></title>
+    <style>@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          background-image: url("https://wallpapercave.com/wp/oVrW0b9.jpg");
+          -moz-background-size: cover;
+          -webkit-background-size: cover;
+          background-size: cover;
+          background-position: top center !important;
+          background-repeat: no-repeat !important;
+          background-attachment: fixed;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          color: rgb(5, 5, 5);
+          font-family: "Ubuntu Mono", monospace;
+        }
+        
+        .wrapper {
+          background-color: black;
+          padding: 30px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 20px;
+        }
+        
+        .header {
+          font-size: 1em;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+        
+        .riddles {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
+        
+        #question {
+          text-align: center;
+          font-size: 0.9em;
+          background-color: rgb(248, 246, 246);
+          padding: 20px;
+          width: 600px;
+          border-radius: 10px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        
+        .answerInput {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        }
+        
+        #answer {
+          text-align: center;
+          font-size: 0.9em;
+          background-color: rgb(86, 86, 86);
+          padding: 20px;
+          width: 600px;
+          border-radius: 10px;
+        }
+        
+        input {
+          width: 300px;
+          height: 30px;
+          border-radius: 5px;
+        }
+        
+        button {
+          padding: 5px;
+          color: rgb(246, 5, 5);
+          background-color: black;
+          border-radius: 5px;
+          border-color: rgb(241, 244, 241);
+        }
+        
+        button:hover {
+          color: black;
+          background-color: rgb(251, 5, 21);
+        }</style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h2 style="color: rgb(246, 5, 5);">Fiddle with Riddle</h2>
+           
+        </div>
+        <div class="riddles">
+            
+            <button type=" submit" id="newRiddle">New Riddle</button>
+            <p id="question"></p>
+            <div class="answerInput">
+                <p style="color: rgb(246, 5, 5)">Your Answer</p>
+                <input type="text" id="yourAnswer">
+                <button type="submit" id="check">Check Answer</button>
+            </div>
+            <button type="submit" id="surren">Surrender</button>
+            <p id="result"></p>
+            <p id="answer"></p>
+        </div>
+    </div>
+
+    <script >var riddle, question, answer;
+
+        async function getRiddle() {
+          const response = await fetch("https://riddles-api.vercel.app/random"); // API yang digunakan riddles-api
+          const data = await response.json();
+          let riddles = data.riddle;
+          let answer = data.answer;
+          let new_riddle = [riddles, answer];
+          return new_riddle;
+        }
+        
+        async function newRiddle() {
+          document.getElementById("result").style.display = "none";
+          document.getElementById("answer").style.display = "none";
+          riddle = await getRiddle();
+          console.log(riddle);
+          question = riddle[0];
+          answer = riddle[1];
+          document.querySelector("#question").textContent = question;
+        }
+        
+        const checkBtn = document.querySelector("#check");
+        checkBtn.addEventListener("click", function () {
+          input = document.querySelector("#yourAnswer").value;
+          checkAnswer(input);
+        });
+        
+        function checkAnswer(input) {
+          document.getElementById("result").style.display = "";
+          if (input.toLowerCase() == answer.toLowerCase()) {
+            disable_input();
+            document.getElementById("surren").style.display = "none";
+            document.querySelector("#result").textContent = "> Your Right Batman!!";
+            document.querySelector("#result").style.color = "rgb(2, 195, 2)";
+            document.getElementById("answer").style.display = "";
+            document.querySelector("#answer").textContent = answer;
+          } else {
+            document.querySelector("#result").textContent = "> Nopee, Try Again";
+            document.querySelector("#result").style.color = "rgb(201, 32, 32)";
+          }
+        }
+        
+        const surrenBtn = document.querySelector("#surren");
+        surrenBtn.addEventListener("click", function () {
+          document.getElementById("result").style.display = "none";
+          document.getElementById("answer").style.display = "";
+          document.querySelector("#answer").textContent = answer;
+          document.getElementById("surren").style.display = "none";
+          disable_input();
+        });
+        
+        const newBtn = document.querySelector("#newRiddle");
+        newBtn.addEventListener("click", function () {
+          document.querySelector("#question").textContent = "";
+          document.querySelector("#result").textContent = "";
+          document.querySelector("#answer").textContent = "";
+          document.getElementById("surren").style.display = "";
+          document.getElementById("yourAnswer").value = "";
+          enable_input();
+          newRiddle();
+        });
+        
+        function disable_input() {
+          document.querySelector("#yourAnswer").disabled = true;
+          document.querySelector("#check").disabled = true;
+        }
+        
+        function enable_input() {
+          document.querySelector("#yourAnswer").disabled = false;
+          document.querySelector("#check").disabled = false;
+        }
+        
+        newRiddle();</script>
+</body>
+
+</html>

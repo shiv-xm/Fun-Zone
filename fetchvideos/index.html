@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos</title>
+    <style>
+      iframe {
+        border: 3px solid rgb(107, 188, 208);
+
+        width: 500px;
+        height: 400px;
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+      }
+      iframe:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      
+
+    </style>
+    <link href="./index.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container text-center">
+      <h1 class="text-center mt-5 text-info" >Top recommended videos</h1>
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" name="" id="search" />
+        </div>
+        <div class="text-center">
+          <input type="submit" class="btn btn-danger btn-center" value="Search Videos" />
+        </div>
+      </form>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="videos"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Latest compiled and minified CSS -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./script.js"></script>
+</html>

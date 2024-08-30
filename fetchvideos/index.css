@@ -1,0 +1,11 @@
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/4058750/pexels-photo-4058750.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

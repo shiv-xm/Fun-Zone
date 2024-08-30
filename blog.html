@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daily Blog</title>
+    <style>.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+	  }
+	  
+	header {
+  width: 100%;
+  height: 120vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
+    url("https://i.pinimg.com/originals/91/73/09/9173090eb81d91d691d8773e7e973f33.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+	  textarea {
+  width: 100%;
+  height:90vh;
+}	  
+	  h1 {
+		text-align: center;
+	  }
+	  .container{
+		color:aliceblue;
+	  }
+	  form {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+	  }
+	  
+	  label {
+		font-weight: bold;
+		color:aliceblue;
+	  }
+	  
+	  input,
+	  textarea {
+		margin-bottom: 10px;
+		height:60px;
+	  }
+	  
+	  button[type="submit"] {
+		align-self: flex-end;
+		color: blue;
+	  }
+	  
+	  .card {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 10px;
+		margin-bottom: 10px;
+		position: relative;
+	  }
+	  
+	  .card-delete {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		background-color: #f44336;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 10px;
+		cursor: pointer;
+	  }
+	  
+	  .card-delete:hover {
+		background-color: #d32f2f;
+	  }
+	  
+	  .card-date {
+		font-style: italic;
+		font-size: small;
+	  }
+	  .navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+    
+}
+
+nav {
+  width: 100%;
+  height: 15vh;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+}
+.menu a:nth-child(2) {
+  margin-right: 17px;
+}
+
+nav .logo {
+  width: 25%;
+  text-align: center;
+  /*background: red;*/
+}
+
+nav .menu {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav .menu a {
+  width: 25%;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
+
+}
+
+
+
+body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:#FFFFFF;
+            background-image: url('http://getwallpapers.com/wallpaper/full/0/8/8/753286-large-cool-video-game-backgrounds-1920x1200-lockscreen.jpg');
+            margin: 0;
+            background-size: cover;
+        }
+
+
+nav .menu a:first-child {
+  color: #c93c11;
+}
+
+
+
+
+
+
+
+    
+   
+	  
+	  </style>
+  </head>
+  <body>
+	<header>
+
+	
+    
+		<nav >
+			
+			
+	<div class="menu">
+		<a href="./index.html" style="font-size: 20px">Home</a>
+		<a href="./works.html">Features</a>
+		<a href="./blog.html">Blog</a>
+		<a href="./contact.html">contact</a>
+		<a href="index12.html">Login</a>
+    
+        
+	</div>
+		</nav><div class="container">
+      <h1>Daily Blog</h1>
+      <form id="blog-form">
+        <label for="title" id="a">Title:</label>
+        <input type="text" id="title" required />
+        <label for="body">Body:</label>
+        <textarea id="body" required></textarea>
+        <button type="submit" >Submit</button>
+      </form>
+      <div id="blog-cards"></div>
+    </div>
+
+
+
+	<!-- <script type="module">
+		import { set } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+
+  import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		const firebaseConfig = {
+		  apiKey: "AIzaSyCQlGHGzbu_9uEt7T0E7VRfE0vXgu1I9Hc",
+		  authDomain: "blog-5aa32.firebaseapp.com",
+		  databaseURL: "https://blog-5aa32-default-rtdb.firebaseio.com",
+		  projectId: "blog-5aa32",
+		  storageBucket: "blog-5aa32.appspot.com",
+		  messagingSenderId: "173393606584",
+		  appId: "1:173393606584:web:bf8e02703b2496ab99014d"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const database = getDatabase(app);
+
+const blogForm = document.getElementById("blog-form");
+const blogCards = document.getElementById("blog-cards");
+
+blogForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const timestamp = new Date().toString();
+  const newBlogRef = push(ref(database, "blogs"));
+  set(newBlogRef, {
+	title: title,
+	body: body,
+	timestamp: timestamp
+  });
+  document.getElementById("title").value = "";
+  document.getElementById("body").value = "";
+});
+
+onValue(ref(database, "blogs"), (snapshot) => {
+  blogCards.innerHTML = "";
+  snapshot.forEach((childSnapshot) => {
+	const blogData = childSnapshot.val();
+	const blogKey = childSnapshot.key;
+	const blogCard = document.createElement("div");
+	blogCard.classList.add("blog-card");
+	const blogTitle = document.createElement("h2");
+	blogTitle.textContent = blogData.title;
+	const blogBody = document.createElement("p");
+	blogBody.textContent = blogData.body;
+	const blogTimestamp = document.createElement("small");
+	blogTimestamp.textContent = blogData.timestamp;
+	const deleteButton = document.createElement("button");
+	deleteButton.textContent = "Delete";
+	deleteButton.addEventListener("click", () => {
+	  remove(ref(database, "blogs/" + blogKey));
+	});
+	blogCard.appendChild(blogTitle);
+	blogCard.appendChild(blogBody);
+	blogCard.appendChild(blogTimestamp);
+	blogCard.appendChild(deleteButton);
+	blogCards.appendChild(blogCard);
+  });
+});
+</script> -->
+
+
+
+
+</header>
+
+  </body>
+</html>
